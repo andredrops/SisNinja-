@@ -5,15 +5,16 @@ object fPrincipal: TfPrincipal
   ClientHeight = 760
   ClientWidth = 1034
   Color = clBtnFace
-  CustomTitleBar.CaptionAlignment = taCenter
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   Position = poDesktopCenter
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  PixelsPerInch = 96
   TextHeight = 15
   object pTop: TPanel
     Left = 0
@@ -67,6 +68,5 @@ object fPrincipal: TfPrincipal
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitTop = 74
   end
 end
