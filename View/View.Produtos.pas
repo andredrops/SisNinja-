@@ -6,6 +6,7 @@ uses
   Winapi.Windows,
   Winapi.Messages,
   System.SysUtils,
+  System.UITypes,
   System.Variants,
   System.Classes,
   Vcl.Graphics,
@@ -29,11 +30,10 @@ uses
   Vcl.ExtCtrls,
   Vcl.Grids,
   Vcl.DBGrids,
-  Vcl.WinXPanels,
-  Controller.produto,
+    Controller.produto,
   Model.produto,
   Util.Validador,
-  Util.Numero;
+  Util.Numero, Vcl.ComCtrls;
 
 type
   TViewProdutos = class(TfPadrao)
@@ -100,7 +100,7 @@ begin
     else
       SalvarRegistro(StrToInt(edtCodigo.Text));
 
-    CardPanel.ActiveCard := plista;
+    CardPanel.ActivePage := plista;
     btnNovo.Enabled := true;
     btnEditar.Enabled := false;
     btnExcluir.Enabled := false;
@@ -212,7 +212,7 @@ begin
     edtDescricao.Text  := Produto.Descricao;
     edtPrecoVenda.Text := FormatFloat('#,##0.00', Produto.PrecoVenda);
     edtUnidade.Text    := Produto.Unidade;
-    CardPanel.activecard := pcadastro;
+    CardPanel.ActivePage := pcadastro;
     btnEditar.caption := 'Gravar';
     btnNovo.enabled := false;
     btnEditar.enabled := true;

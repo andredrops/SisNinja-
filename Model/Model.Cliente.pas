@@ -38,6 +38,9 @@ type
 
 implementation
 
+uses
+  FireDAC.Stan.Param;
+
 { TCliente }
 
 function TCliente.ComNome(const ANome: string): TCliente;

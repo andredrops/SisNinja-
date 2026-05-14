@@ -6,7 +6,6 @@ object fPadrao: TfPadrao
   ClientHeight = 416
   ClientWidth = 570
   Color = clBtnFace
-  CustomTitleBar.CaptionAlignment = taCenter
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
@@ -19,24 +18,22 @@ object fPadrao: TfPadrao
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 15
-  object CardPanel: TCardPanel
+  object CardPanel: TPageControl
     Left = 137
     Top = 0
     Width = 433
     Height = 416
     Align = alClient
-    ActiveCard = pLista
-    BevelOuter = bvNone
-    Caption = 'CardPanel'
+    ActivePage = pLista
+    TabPosition = tpBottom
     TabOrder = 0
-    object pLista: TCard
+    object pLista: TTabSheet
       Left = 0
       Top = 0
       Width = 433
       Height = 416
       Caption = 'Lista'
-      CardIndex = 0
-      TabOrder = 0
+      TabVisible = False
       object lbTotal: TLabel
         AlignWithMargins = True
         Left = 3
@@ -75,14 +72,13 @@ object fPadrao: TfPadrao
         OnTitleClick = dbgTitleClick
       end
     end
-    object pCadastro: TCard
+    object pCadastro: TTabSheet
       Left = 0
       Top = 0
       Width = 433
       Height = 416
       Caption = 'Cadastro'
-      CardIndex = 1
-      TabOrder = 1
+      TabVisible = False
       object lbCodigo: TLabel
         Left = 6
         Top = 9

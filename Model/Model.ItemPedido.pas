@@ -37,6 +37,9 @@ type
 
 implementation
 
+uses
+  FireDAC.Stan.Param;
+
 { TItemPedido }
 
 function TItemPedido.NoPedido(APedidoId: Integer): TItemPedido;

@@ -4,15 +4,15 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.WinXPanels, Vcl.StdCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, FireDAC.Stan.Intf,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.StdCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, math, strutils;
 
 type
   TfPadrao = class(TForm)
-    CardPanel: TCardPanel;
-    pLista: TCard;
-    pCadastro: TCard;
+    CardPanel: TPageControl;
+    pLista: TTabSheet;
+    pCadastro: TTabSheet;
     pBotoes: TPanel;
     btnNovo: TButton;
     btnEditar: TButton;
@@ -57,7 +57,7 @@ uses Model.Connection;
 
 procedure TfPadrao.btnCancelarClick(Sender: TObject);
 begin
-  CardPanel.ActiveCard := pLista;
+  CardPanel.ActivePage := pLista;
   btnEditar.caption := 'Editar';
   btnNovo.Enabled := true;
   btnEditar.Enabled := false;
@@ -68,7 +68,7 @@ end;
 
 procedure TfPadrao.btnEditarClick(Sender: TObject);
 begin
-  CardPanel.ActiveCard := pCadastro;
+  CardPanel.ActivePage := pCadastro;
   btnNovo.Enabled := false;
   btnEditar.Enabled := true;
   btnExcluir.Enabled := false;
@@ -87,7 +87,7 @@ end;
 
 procedure TfPadrao.btnNovoClick(Sender: TObject);
 begin
-  CardPanel.ActiveCard := pCadastro;
+  CardPanel.ActivePage := pCadastro;
   btnNovo.Enabled := false;
   btnEditar.Caption := 'Gravar';
   btnEditar.Enabled := true;
@@ -147,7 +147,7 @@ end;
 
 procedure TfPadrao.FormCreate(Sender: TObject);
 begin
-  CardPanel.ActiveCard := pLista;
+  CardPanel.ActivePage := pLista;
   lbTotal.Caption := 'Total: 0';
   FDQuery.Connection := TConnection.Get;
 end;

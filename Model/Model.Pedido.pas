@@ -50,6 +50,9 @@ type
 
 implementation
 
+uses
+  FireDAC.Stan.Param;
+
 { TPedido }
 
 constructor TPedido.Create;

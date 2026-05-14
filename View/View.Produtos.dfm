@@ -3,11 +3,8 @@ inherited ViewProdutos: TViewProdutos
   OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 15
-  inherited CardPanel: TCardPanel
-    inherited pLista: TCard
-      inherited lbTotal: TLabel
-        Width = 427
-      end
+  inherited CardPanel: TPageControl
+    inherited pLista: TTabSheet
       inherited dbg: TDBGrid
         OnCellClick = dbgCellClick
         OnDblClick = dbgDblClick
@@ -39,11 +36,11 @@ inherited ViewProdutos: TViewProdutos
           end>
       end
     end
-    inherited pCadastro: TCard
+    inherited pCadastro: TTabSheet
       object lbPrecoVenda: TLabel [2]
         Left = 6
         Top = 101
-        Width = 66
+        Width = 65
         Height = 15
         Caption = 'Pre'#231'o Venda'
       end

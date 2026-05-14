@@ -1,4 +1,4 @@
-unit Model.Produto;
+﻿unit Model.Produto;
 
 interface
 
@@ -32,6 +32,9 @@ type
   TProdutoDAO = class(TBaseDAO<TProduto>);
 
 implementation
+
+uses
+  FireDAC.Stan.Param;
 
 { TProduto }
 

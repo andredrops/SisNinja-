@@ -3,11 +3,8 @@ inherited ViewClientes: TViewClientes
   OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 15
-  inherited CardPanel: TCardPanel
-    inherited pLista: TCard
-      inherited lbTotal: TLabel
-        Width = 427
-      end
+  inherited CardPanel: TPageControl
+    inherited pLista: TTabSheet
       inherited dbg: TDBGrid
         OnCellClick = dbgCellClick
         OnDblClick = dbgDblClick
@@ -39,7 +36,7 @@ inherited ViewClientes: TViewClientes
           end>
       end
     end
-    inherited pCadastro: TCard
+    inherited pCadastro: TTabSheet
       object lbDocumento: TLabel [2]
         Left = 6
         Top = 102

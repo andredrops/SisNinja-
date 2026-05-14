@@ -1,4 +1,4 @@
-unit Model.BaseDAO;
+﻿unit Model.BaseDAO;
 
 interface
 
@@ -34,6 +34,9 @@ type
   end;
 
 implementation
+
+uses
+  FireDAC.Stan.Param;
 
 class procedure TBaseDAO<T>.Inserir(const AEntidade: T);
 var Q: TFDQuery;

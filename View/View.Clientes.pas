@@ -6,12 +6,12 @@ uses
   Winapi.Windows,
   Winapi.Messages,
   System.SysUtils,
+  System.UITypes,
   System.Variants,
   System.Classes,
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
-  Vcl.Dialogs,
   ufPadrao,
   Data.DB,
   FireDAC.Stan.Intf,
@@ -29,10 +29,9 @@ uses
   Vcl.ExtCtrls,
   Vcl.Grids,
   Vcl.DBGrids,
-  Vcl.WinXPanels,
-  Controller.Cliente,
+    Controller.Cliente,
   Model.Cliente,
-  Util.Validador;
+  Util.Validador, Vcl.ComCtrls;
 
 type
   TViewClientes = class(TfPadrao)
@@ -69,6 +68,9 @@ var
 
 implementation
 
+uses
+  Vcl.Dialogs;
+
 {$R *.dfm}
 
 procedure TViewClientes.btnEditarClick(Sender: TObject);
@@ -93,7 +95,7 @@ begin
     else
       SalvarRegistro(StrToInt(edtCodigo.Text));
 
-    CardPanel.ActiveCard := plista;
+    CardPanel.ActivePage := plista;
     btnNovo.Enabled := true;
     btnEditar.Enabled := false;
     btnExcluir.Enabled := false;
@@ -107,7 +109,7 @@ begin
   inherited;
   if FDQuery.IsEmpty then
     Exit;
-  if MessageDlg('Confirma a exclusão do registro?',mtConfirmation, [mbYes, mbNo], 0) <> mrYes then
+  if Vcl.Dialogs.MessageDlg('Confirma a exclusão do registro?',mtConfirmation, [mbYes, mbNo], 0) <> mrYes then
   begin
     btnExcluir.enabled := false;
     Exit;
@@ -137,7 +139,7 @@ begin
     edtDescricao.Text := Cliente.Nome;
     edtDocumento.Text := Cliente.Documento;
     edtCidade.Text    := Cliente.Cidade;
-    CardPanel.activecard := pcadastro;
+    CardPanel.ActivePage := pcadastro;
     btnEditar.caption := 'Gravar';
     btnNovo.enabled := false;
     btnEditar.enabled := true;

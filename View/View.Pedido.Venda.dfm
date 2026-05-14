@@ -6,7 +6,6 @@ object ViewPedidoVenda: TViewPedidoVenda
   ClientHeight = 595
   ClientWidth = 845
   Color = clBtnFace
-  CustomTitleBar.CaptionAlignment = taCenter
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
